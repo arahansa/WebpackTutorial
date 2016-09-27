@@ -15,10 +15,15 @@ module.exports = {
     }),
     new webpack.optimize.OccurrenceOrderPlugin()
   ],
+  node: {
+    dns: 'mock',
+    net: 'mock'
+  },
   module: {
-    loaders: [{
-      test: /\.css$/,
-      loaders: ['style', 'css']
-    }]
+    loaders: [
+      { test: /\.css$/, loaders: ['style', 'css'] },
+      {test: /\.json$/, loader: "json"}
+    ]
   }
+  
 }
